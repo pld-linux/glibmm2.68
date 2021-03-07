@@ -72,7 +72,7 @@ Summary:	Reference documentation for glibmm
 Summary(pl.UTF-8):	Szczegółowa dokumentacja dla glibmm
 Group:		Documentation
 Requires:	gtk-doc-common
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 Reference documentation for glibmm.
