@@ -2,6 +2,7 @@
 # - make clean on -examples (remove .deps) -> & noarch subpackage
 #
 # Conditional build:
+%bcond_without	apidocs		# API documentation
 %bcond_without	static_libs	# don't build static library
 
 %define 	glib_ver	1:2.63.0
@@ -18,7 +19,6 @@ Source0:	https://download.gnome.org/sources/glibmm/2.68/glibmm-%{version}.tar.xz
 URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	doxygen >= 1:1.8.9
 BuildRequires:	glib2-devel >= %{glib_ver}
 BuildRequires:	libsigc++3-devel >= %{libsigc_ver}
 BuildRequires:	libstdc++-devel >= 6:7
@@ -30,6 +30,11 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+%if %{with apidocs}
+BuildRequires:	doxygen >= 1:1.8.9
+BuildRequires:	graphviz
+BuildRequires:	libxslt-progs
+%endif
 Requires:	glib2 >= %{glib_ver}
 Requires:	libsigc++3 >= %{libsigc_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -102,6 +107,7 @@ mm-common-prepare --copy --force
 %{__autoheader}
 %{__automake}
 %configure \
+	%{!?with_apidocs:--disable-documentation} \
 	--enable-maintainer-mode \
 	--disable-silent-rules \
 	%{?with_static_libs:--enable-static}
@@ -164,9 +170,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libglibmm_generate_extra_defs-2.68.a
 %endif
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/glibmm-2.68
+%endif
 
 %files examples
 %defattr(644,root,root,755)
