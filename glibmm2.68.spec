@@ -1,5 +1,3 @@
-# TODO
-# - make clean on -examples (remove .deps) -> & noarch subpackage
 #
 # Conditional build:
 %bcond_without	apidocs		# API documentation
@@ -28,6 +26,7 @@ BuildRequires:	mm-common >= 0.9.12
 BuildRequires:	perl-XML-Parser
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -90,6 +89,7 @@ Szczegółowa dokumentacja dla glibmm.
 Summary:	Examples for glibmm
 Summary(pl.UTF-8):	Przykłady dla glibmm
 Group:		Development/Libraries
+BuildArch:	noarch
 
 %description examples
 Examples for glibmm.
@@ -127,6 +127,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -pr examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__rm} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/Makefile* \
 	$RPM_BUILD_ROOT%{_libdir}/*.la
+find $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version} -name .deps -type d -exec %{__rm} -r {} + -prune
 
 %clean
 rm -rf $RPM_BUILD_ROOT
