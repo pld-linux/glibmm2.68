@@ -12,7 +12,7 @@ Version:	2.76.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	https://download.gnome.org/sources/glibmm/2.74/glibmm-%{version}.tar.xz
+Source0:	https://download.gnome.org/sources/glibmm/2.76/glibmm-%{version}.tar.xz
 # Source0-md5:	251055ea78ae1ecdaef41e119e082341
 URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
