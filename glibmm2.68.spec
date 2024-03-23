@@ -3,17 +3,17 @@
 %bcond_without	apidocs		# API documentation
 %bcond_without	static_libs	# don't build static library
 
-%define 	glib_ver	1:2.77.0
+%define 	glib_ver	1:2.79.2
 %define		libsigc_ver	1:3.0.0
 Summary:	A C++ interface for glib library
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki glib
 Name:		glibmm2.68
-Version:	2.78.1
+Version:	2.80.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	https://download.gnome.org/sources/glibmm/2.78/glibmm-%{version}.tar.xz
-# Source0-md5:	52b93bf93de45e5a6b3c321bc832cd9c
+Source0:	https://download.gnome.org/sources/glibmm/2.80/glibmm-%{version}.tar.xz
+# Source0-md5:	7e58344303cec7cd5f1e812f4c70cb43
 URL:		https://www.gtkmm.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
