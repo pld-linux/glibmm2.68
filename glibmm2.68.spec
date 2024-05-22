@@ -53,6 +53,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= %{glib_ver}
 Requires:	libsigc++3-devel >= %{libsigc_ver}
 Requires:	libstdc++-devel >= 6:7
+Requires:	perl-XML-Parser
 
 %description devel
 Header files for glibmm library.
