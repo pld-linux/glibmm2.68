@@ -8,13 +8,13 @@
 Summary:	A C++ interface for glib library
 Summary(pl.UTF-8):	Interfejs C++ dla biblioteki glib
 Name:		glibmm2.68
-Version:	2.88.0
+Version:	2.88.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/glibmm/2.88/glibmm-%{version}.tar.xz
-# Source0-md5:	1076c94afa8c4965b959289a8e225a3d
-URL:		https://www.gtkmm.org/
+# Source0-md5:	6111fd5a4a2fdd9d613d73b714369494
+URL:		https://gtkmm.gnome.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	glib2-devel >= %{glib_ver}
@@ -139,18 +139,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README.md
-%attr(755,root,root) %{_libdir}/libgiomm-2.68.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgiomm-2.68.so.1
-%attr(755,root,root) %{_libdir}/libglibmm-2.68.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libglibmm-2.68.so.1
-%attr(755,root,root) %{_libdir}/libglibmm_generate_extra_defs-2.68.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libglibmm_generate_extra_defs-2.68.so.1
+%{_libdir}/libgiomm-2.68.so.*.*.*
+%ghost %{_libdir}/libgiomm-2.68.so.1
+%{_libdir}/libglibmm-2.68.so.*.*.*
+%ghost %{_libdir}/libglibmm-2.68.so.1
+%{_libdir}/libglibmm_generate_extra_defs-2.68.so.*.*.*
+%ghost %{_libdir}/libglibmm_generate_extra_defs-2.68.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgiomm-2.68.so
-%attr(755,root,root) %{_libdir}/libglibmm-2.68.so
-%attr(755,root,root) %{_libdir}/libglibmm_generate_extra_defs-2.68.so
+%{_libdir}/libgiomm-2.68.so
+%{_libdir}/libglibmm-2.68.so
+%{_libdir}/libglibmm_generate_extra_defs-2.68.so
 %dir %{_libdir}/giomm-2.68
 %{_libdir}/giomm-2.68/include
 %dir %{_libdir}/glibmm-2.68
